@@ -4,7 +4,6 @@ $(document).ready(function() {
             $('#toggleSidebar').html(`
             <i class="w-4 h-4 fa-regular fa-left"></i>
           `);
-            lucide.createIcons();
         }
 
         let isCollapsed = $(window).width() <= 768;
@@ -14,7 +13,6 @@ $(document).ready(function() {
             $(this).html(`
             <i class="${isCollapsed ? 'w-4 h-4 fa-regular fa-left' : 'w-4 h-4 fa-regular fa-right'}"></i>
           `);
-            // lucide.createIcons();
         });
 
         let isDark = false;
@@ -24,6 +22,5 @@ $(document).ready(function() {
             $(this).html(`
             <i class="${isDark ? 'w-4 h-4 fa-regular fa-sun' : 'w-4 h-4 fa-regular fa-moon'}"></i>
           `);
-            // lucide.createIcons();
         });
     });
