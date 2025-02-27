@@ -91,7 +91,7 @@ if (login_check_admin()) {
                                     $user_id = numer($_SESSION['user_id']);
                                     $columns = "user_id, date, ip, sys";
                                     $values = [$user_id, $date, $ip, $sys];
-                                    dbInsert("logs", $columns, $values);
+                                    dbInsert("admin_logs", $columns, $values);
                                     echo "<meta http-equiv='Refresh' content='0; url=../dashboard'>";
                                     sweet("success", "نجاح", "تم الدخول بنجاح");
                                     exit;

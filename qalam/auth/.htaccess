@@ -1,3 +1,3 @@
 # auto include
-php_value auto_prepend_file abma/minimal.php
+php_value auto_prepend_file qalam/minimal.php
 php_value auto_append_file none

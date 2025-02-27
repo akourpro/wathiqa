@@ -1,6 +1,6 @@
 # auto include
-php_value auto_prepend_file abma/autoload.php
-php_value auto_append_file abma/footer.php
+php_value auto_prepend_file qalam/autoload.php
+php_value auto_append_file qalam/footer.php
 
 #Routes
 RewriteEngine On

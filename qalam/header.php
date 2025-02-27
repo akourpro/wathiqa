@@ -9,7 +9,7 @@
     <META NAME="GOOGLEBOT" CONTENT="NOARCHIVE">
     <meta name="_csrf" content="<?php echo $csrf->header(); ?>">
 
-    <base href="<?php echo $site["site_url"]; ?>abma/" />
+    <base href="<?php echo $site["site_url"]; ?>qalam/" />
     <!-- <base href="" /> -->
 
     <!-- <title><?php echo safer($lang[setTitle(escUrl($_SERVER['PHP_SELF']))]); ?></title> -->
@@ -108,7 +108,7 @@
                         <a href="../" class="menu-link" target="_blank">
                             <i class="menu-icon tf-icons mdi mdi-web"></i>رئيسية الموقع</a>
                     </li>
-                    <li class="menu-item <?php if (setTitle(escUrl($_SERVER['PHP_SELF'])) == "abma_index") echo "active"; ?>">
+                    <li class="menu-item <?php if (setTitle(escUrl($_SERVER['PHP_SELF'])) == "qalam_index") echo "active"; ?>">
                         <a href="dashboard" class="menu-link">
                             <i class="menu-icon tf-icons mdi mdi-home"></i>الرئيسية</a>
                     </li>
@@ -116,7 +116,7 @@
                         <a href="settings" class="menu-link">
                             <i class="menu-icon tf-icons mdi mdi-cog"></i>اعدادات الموقع</a>
                     </li>
-                    <li class="menu-item <?php if (setTitle(escUrl($_SERVER['PHP_SELF'])) == "abma_templates") echo "active"; ?>">
+                    <li class="menu-item <?php if (setTitle(escUrl($_SERVER['PHP_SELF'])) == "qalam_templates") echo "active"; ?>">
                         <a href="templates" class="menu-link">
                             <i class="menu-icon tf-icons mdi mdi-panorama-variant-outline"></i>القوالب</a>
                     </li>
@@ -125,7 +125,7 @@
                     <li class="menu-header fw-medium mt-4">
                         <span class="menu-header-text">المحتويات</span>
                     </li>
-                    <li class="menu-item <?php if (setTitle(escUrl($_SERVER['PHP_SELF'])) == "abma_home") echo "active"; ?>">
+                    <li class="menu-item <?php if (setTitle(escUrl($_SERVER['PHP_SELF'])) == "qalam_home") echo "active"; ?>">
                         <a href="home" class="menu-link">
                             <i class="menu-icon tf-icons mdi mdi-book-open-page-variant-outline"></i>الصفحة الرئيسية
                         </a>
@@ -146,7 +146,7 @@
                     <!-- <li class="menu-header fw-medium mt-4">
                         <span class="menu-header-text">اللغات والكلمات</span>
                     </li>
-                    <li class="menu-item <?php if (setTitle(escUrl($_SERVER['PHP_SELF'])) == "abma_language") echo "active"; ?>">
+                    <li class="menu-item <?php if (setTitle(escUrl($_SERVER['PHP_SELF'])) == "qalam_language") echo "active"; ?>">
                         <a href="language" class="menu-link">
                             <i class="menu-icon tf-icons mdi mdi-account-group"></i> الكلمات والادخالات
                         </a>

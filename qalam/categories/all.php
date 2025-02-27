@@ -1,5 +1,5 @@
 <title>الفئات</title>
-<link rel="stylesheet" href="../templates/default/assets/vendor/fonts/remixicon/remixicon.css" />
+<link rel="stylesheet" href="../css/remixicon/remixicon.css" />
 <h4 class="py-3 mb-4"><span class="text-muted fw-light">الفئات /</span> عرض الكل</h4>
 <style>
     .swal2-container {
