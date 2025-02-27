@@ -1,7 +1,7 @@
 Options -Indexes -MultiViews +FollowSymlinks
 
 # auto include
-php_value include_path "C:/xampp/htdocs/wathiqa/"
+#php_value include_path ""
 php_value auto_prepend_file autoload.php
 php_value auto_append_file none
 

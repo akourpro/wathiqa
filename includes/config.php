@@ -17,7 +17,7 @@ define("HOST", "");     // The host you want to connect to.
 define("USER", "");    // The database username. 
 define("PASSWORD", "");    // The database password. 
 define("DATABASE", "");    // The database name. 
-define("CHARSET", "");    // The database name. 
+define("CHARSET", "utf8mb4");    // The database name. 
 
 
 $options = [

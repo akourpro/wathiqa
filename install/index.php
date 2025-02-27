@@ -59,7 +59,7 @@
 
 <body>
     <h1>تثبيت سكربت وثيقة</h1>
-    <center>
+    <center style="direction: rtl;">
         <?php
         if (isset($_POST["check"])) {
 
@@ -78,13 +78,18 @@
             define("PASSWORD", $password);    // The database password. 
             define("DATABASE", $database);    // The database name. 
             define("CHARSET", "utf8mb4");    // The database name. 
-            $options = [
-                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                PDO::ATTR_EMULATE_PREPARES   => false,
-                PDO::MYSQL_ATTR_FOUND_ROWS => true,
-            ];
-            $con = new PDO("mysql:host=" . HOST . ";dbname=" . DATABASE . ";charset=" . CHARSET, USER, PASSWORD, $options);
+            try {
+                $options = [
+                    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                    PDO::ATTR_EMULATE_PREPARES   => false,
+                    PDO::MYSQL_ATTR_FOUND_ROWS   => true,
+                ];
+
+                $con = new PDO("mysql:host=" . HOST . ";dbname=" . DATABASE . ";charset=" . CHARSET, USER, PASSWORD, $options);
+            } catch (PDOException $e) {
+                die("فشل الاتصال بقاعدة البيانات: " . $e->getMessage() . "<br><b class='small'>تحقق من بيانات الاتصال بقاعدة البيانات</b>");
+            }
 
             // update db config
             // Read the existing config file
@@ -96,14 +101,33 @@
             $configContent = preg_replace("/define\(\"DATABASE\", \"(.*?)\"\);/", "define(\"DATABASE\", \"$database\");", $configContent);
             // Write the updated config file
             file_put_contents("../includes/config.php", $configContent);
-            echo "1 - DB config done .. <br>";
+            echo "1 - تم إعداد ملف <b>config.php</b> .. <br>";
+
+            // حقن ملف db.sql في قاعدة البيانات
+            $sqlFile = 'db.sql';
+            if (file_exists($sqlFile)) {
+                $sqlCommands = file_get_contents($sqlFile);
+
+                try {
+                    $con->exec($sqlCommands);
+                    echo "1.1 - تم استيراد قاعدة البيانات بنجاح <br>";
+                } catch (PDOException $e) {
+                    echo "1.1 - فشل في استيراد قاعدة البيانات: " . $e->getMessage() . "<br>";
+                    echo "<b class='small'>فشل التثبيت</b>";
+                    die();
+                }
+            } else {
+                echo "1.1 - ملف قاعدة البيانات <b>db.sql</b> غير موجود <b class='small'>فشل التثبيت</b><br>";
+                die();
+            }
+
 
             // update site settings
             $stmt = $con->prepare("UPDATE settings SET value=? WHERE name='site_url' LIMIT 1");
             $stmt->execute([$site_url]);
             $stmt = $con->prepare("UPDATE settings SET value=? WHERE name='site_folder' LIMIT 1");
             $stmt->execute([$site_folder]);
-            echo "2 - Site settings done .. <br>";
+            echo "2 - تم تحديث إعدادات قاعدة البيانات .. <br>";
 
             // htacess edit path
             if ($site_folder) {
@@ -114,10 +138,21 @@
             // Read the content of the file
             $fileContent = file_get_contents("../.htaccess");
             // Modify the desired part of the content
-            $fileContent = preg_replace('/php_value include_path "(.*?)"/', 'php_value include_path "' . $site_path . '"', $fileContent);
+            $fileContent = preg_replace('/#php_value include_path "(.*?)"/', 'php_value include_path "' . $site_path . '"', $fileContent);
             // Save the modified content back to the file
             file_put_contents("../.htaccess", $fileContent);
-            echo "3 - .htaccess path done .. <br>";
+            echo "3 - تم تحديث ملف <b>.htaccess</b> .. <br>";
+
+            unlink('db.sql');
+            echo "4 - تم حذف ملف القاعدة المؤقت ..<br>";
+
+            unlink('index.php');
+            echo "5 - تم حذف ملف التثبيت بنجاح <br><a href='../' target='_blank'>انقر هنا لفتح الموقع</a><br><a href='../qalam' target='_blank'>انقر هنا لفتح لوحة تحكم الموقع</a><br>";
+            echo "بيانات الدخول الى لوحة التحكم:<br>";
+            echo "البريد الالكتروني: admin@gmail.com<br>";
+            echo "كلمة المرور: admin<br>";
+            unlink('Tajawal.ttf');
+            unlink('.htaccess');
         }
         ?><br>
     </center>
