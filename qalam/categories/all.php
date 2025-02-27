@@ -56,7 +56,7 @@
                                 <button class="btn btn-sm btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">إجراء</button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a href="../category/' . $row['slug'] . '/view" class="dropdown-item text-primary edit" target="_blank"><i class="mdi mdi-eye"></i> عرض</a>
-                                    <!-- <span data-id="' . $row['id'] . '" class="dropdown-item text-warning edit"><i class="mdi mdi-pencil"></i> تعديل</span> -->
+                                    <span data-id="' . $row['id'] . '" data-title="' . $row['title'] . '" data-slug="' . $row['slug'] . '" data-icon="' . $row['icon'] . '" data-status="' . $row['status'] . '" data-description="' . $row['description'] . '" class="dropdown-item text-warning edit" data-bs-toggle="offcanvas" data-bs-target="#editCategoryCanvas"><i class="mdi mdi-pencil"></i> تعديل</span>
                                     <span data-id="' . $row['id'] . '" data-action="delete" data-name="' . $row['title'] . '" class="dropdown-item text-danger delete"><i class="mdi mdi-delete"></i> حذف</span>
                                 </div>
                             </div>
@@ -120,19 +120,54 @@
     </div>
 </div>
 
-<script>
-    $(document).ready(function() {
-        // استهداف حقل الإدخال
-        var inputField = $("#slug");
 
-        // استبدال المسافات بعلامات _ عند كتابة المستخدم
-        inputField.on("input", function() {
-            var text = $(this).val();
-            // استبدال جميع المسافات بعلامات _
-            var replacedText = text.replace(/\s/g, "-");
-            // تحديث قيمة حقل الإدخال
-            $(this).val(replacedText);
-        });
-    });
-</script>
+<!-- الواجهة الجانبية (Offcanvas) -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="editCategoryCanvas">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">تعديل الفئة</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="إغلاق"></button>
+    </div>
+    <div class="offcanvas-body">
+        <form id="editCategoryForm">
+            <input type="hidden" id="categoryId" name="id">
+
+            <div class="form-floating form-floating-outline mb-5">
+                <input type="text" class="form-control" id="title_edit" name="title" placeholder="اسم او عنوان الفئة">
+                <label for="title">اسم الفئة</label>
+            </div>
+
+            <div class="form-floating form-floating-outline mb-5">
+                <input type="text" class="form-control" id="slug_edit" name="slug" placeholder="الاسم في الرابط">
+                <label for="slug">رابط الفئة (Slug)</label>
+            </div>
+
+            <div class="form-floating form-floating-outline mb-5">
+                <input type="text" class="form-control" id="icon_edit" name="icon" placeholder="ri-shopping-cart-line">
+                <label for="icon">الأيقونة</label>
+                <small class="text-danger">مكتبة الأيقونات <a href="https://remixicon.com/" target="_blank">remixicon.com</a></small>
+            </div>
+
+            <div class="form-floating form-floating-outline mb-5">
+                <select class="form-select" id="status_edit" name="status">
+                    <option value="enable">ظاهر</option>
+                    <option value="disable">مخفي</option>
+                </select>
+                <label for="status">الحالة</label>
+            </div>
+
+            <div class="form-floating form-floating-outline mb-5">
+                <textarea class="form-control" id="description_edit" name="description" placeholder="وصف قصير"></textarea>
+                <label for="description">وصف قصير</label>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <span id="editEventBtn" class="btn btn-primary">تعديل</span>
+                <span class="btn btn-outline-secondary" data-bs-dismiss="offcanvas">إلغاء</span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
 <script src="js/categories.js"></script>

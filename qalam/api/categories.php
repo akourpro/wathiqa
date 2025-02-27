@@ -32,6 +32,43 @@ if (!empty($action)) {
             die();
         }
     }
+    if ($action === "edit") {
+        $id = safer($data->id);
+        $title = safer($data->title) ?? NULL;
+        $slug = safer($data->slug) ?? NULL;
+        $status = safer($data->status) ?? 'enable';
+        $description = safer($data->description) ?? NULL;
+        $icon = safer($data->icon) ?? NULL;
+        if (!empty($id)) {
+            dbSelect("categories", "id", "WHERE id = ? LIMIT 1", [$id]);
+            if ($countrows == 1) {
+                if (empty($slug)) {
+                    $slug = genCode("categories", "slug", "token", 6);
+                }
+                // Check msg Exist
+                dbSelect("categories", "*", "WHERE slug = ? AND id != ? LIMIT 1", [$slug, $id]);
+                if ($countrows == 0) {
+                    if (!empty($title)) {
+                        $columns = "title = ?, description = ?, slug = ?, icon = ?, status = ?, last_update = ?";
+                        $values = [$title, $description, $slug, $icon, $status, date("Y-m-d H:i:s"), $id];
+                        dbUpdate("categories", $columns, $values, "WHERE id = ?");
+                        echo json_encode(array('status' => true, "message" => "تم تعديل الفئة بنجاح"));
+                    } else {
+                        echo json_encode(array('status' => false, "message" => "اسم الفئة مطلوب"));
+                    }
+                } else {
+                    echo json_encode(array('status' => false, "message" => "اسم الرابط موجود مسبقًا لفئة اخرى"));
+                    die();
+                }
+            } else {
+                echo json_encode(array('status' => false, "message" => "الفئة غير موجودة"));
+                die();
+            }
+        } else {
+            echo json_encode(array('status' => false, "message" => "لم يتم العثور على الفئة"));
+            die();
+        }
+    }
 
     if ($action === "delete") {
         $id = safer($data->id);
