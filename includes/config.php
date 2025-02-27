@@ -13,11 +13,11 @@ error_reporting(E_ALL ^ E_DEPRECATED ^ E_WARNING);
 /**
  * DB CONFIG
  */
-define("HOST", "localhost");     // The host you want to connect to.
-define("USER", "username");    // The database username. 
-define("PASSWORD", "password");    // The database password. 
-define("DATABASE", "db_name");    // The database name. 
-define("CHARSET", "utf8mb4");    // The database name. 
+define("HOST", "");     // The host you want to connect to.
+define("USER", "");    // The database username. 
+define("PASSWORD", "");    // The database password. 
+define("DATABASE", "");    // The database name. 
+define("CHARSET", "");    // The database name. 
 
 
 $options = [
