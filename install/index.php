@@ -121,7 +121,7 @@
         }
         ?><br>
     </center>
-    <form action="install" method="post">
+    <form action="index.php" method="post">
         <label for="hostname">Hostname:</label>
         <input type="text" id="hostname" name="hostname" placeholder="اسم المضيف" required>
         <small class="small">مثال: localhost</small>
