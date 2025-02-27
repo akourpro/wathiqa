@@ -26,8 +26,6 @@ RewriteRule ^auth/logout/?$ auth/logout.php [QSA,L]
 
 # Categories 
 RewriteRule ^categories/?$ categories/all.php [QSA,L]
-RewriteRule ^categories/new/?$ categories/new.php [QSA,L]
-RewriteRule ^categories/([0-9]+)/edit/?$ categories/edit.php?id=$1 [QSA,L]
 
 # Articles 
 RewriteRule ^articles/?$ articles/all.php [QSA,L]
