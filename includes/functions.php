@@ -193,7 +193,7 @@ function sec_session_start($workspace)
 	$httponly = true;
 	// Forces sessions to only use cookies.
 	if (ini_set('session.use_only_cookies', 1) === FALSE) {
-		echo "<meta http-equiv='Refresh' content='0; url=" . safer($site["site_url"]) . "abma/auth/login'>";
+		echo "<meta http-equiv='Refresh' content='0; url=" . safer($site["site_url"]) . "qalam/auth/login'>";
 		exit();
 	}
 	// Gets current cookies params.

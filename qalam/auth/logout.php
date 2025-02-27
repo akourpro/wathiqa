@@ -18,4 +18,4 @@ setcookie(
 
 // Destroy session 
 session_destroy();
-echo '<meta http-equiv="refresh" content="0;url=' . safer($site["site_url"]) . 'abma/auth/login" />';
+echo '<meta http-equiv="refresh" content="0;url=' . safer($site["site_url"]) . 'qalam/auth/login" />';
