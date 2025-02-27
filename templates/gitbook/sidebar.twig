@@ -1,0 +1,29 @@
+<nav class="p-3" id="sidebarNav">
+      {% for cats in header_cate %}
+
+        <div class="mb-4">
+          <h3 class="text-muted small fw-semibold mb-2"><i class="{{cats.icon}}"></i> {{cats.title}}</h3>
+          {% for article in header_articles %}
+          {% if article.category == cats.id %}
+          <ul class="nav flex-column nav-pills gap-1">
+            <li class="nav-item"><a href="article/{{ article.slug }}/show" class="nav-link {% if article.slug == slug %}active{% endif %}">{{ article.title }}</a></li>
+          </ul>
+          {% endif %}
+          {% endfor %}
+        </div>
+
+      {% endfor %}
+        
+      </nav>
+    </div>
+
+    <div class="main-content">
+      <header class="navbar sticky-top glass-nav border-bottom">
+        <div class="container-fluid">
+          <h1 class="navbar-brand mb-0 h1">{{ page_title }}</h1>
+          <button id="toggleTheme" class="btn btn-light">
+            <i class="w-4 h-4 fa-regular fa-moon"></i>
+            
+          </button>
+        </div>
+      </header>

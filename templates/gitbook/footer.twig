@@ -1,0 +1,43 @@
+    <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+            <a href="{{ siteUrl }}" class="mb-3 ms-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+                <img src="files/images/logo.png" width="30" height="24">
+            </a>
+            <span class="mb-3 mb-md-0 text-body-secondary">جميع الحقوق محفوظة © {{ 'now' | date('Y') }} {{siteName}}</span>
+        </div>
+
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3">
+                <a class="text-body-secondary facebook" href="{{ facebook }}" target="_blank">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+            </li>
+
+            <li class="ms-3">
+                <a class="text-body-secondary instagram" href="{{ instagram }}" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </li>
+
+            <li class="ms-3">
+                <a class="text-body-secondary twitter" href="{{ twitter }}" target="_blank">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+            </li>
+
+            <li class="ms-3">
+                <a class="text-body-secondary github" href="{{ github }}" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </li>
+        </ul>
+    </footer>
+</div>
+    </div>
+<script src="{{ templatePath }}/assets/js/bootstrap.bundle.min.js"></script>
+<script src="{{ templatePath }}/assets/js/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+{% extends "base.twig" %}
+
+{% set page_title = "الصفحة غير موجودة" %}
+{% set subPageDescription = "خطأ 404، الصفحة المطلوبة غير موجودة !" %}
+
+{% block content %}
+{% include 'sidebar.twig' %}
+
+<main class="container py-4 fade-in">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <section class="mb-5">
+                <p class="mt-4 lead text-muted">
+                    <div class="badge bg-danger">خطأ 404</div>
+                    <br>
+                    <br>
+                    <div class="alert alert-danger">عذرًا، الصفحة المطلوبة غير موجودة !</div>
+                    <br>
+                    <br>
+                    <a href="{{ siteUrl }}" class="btn btn-primary">العودة للرئيسية</a>
+                </p>
+            </section>
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}

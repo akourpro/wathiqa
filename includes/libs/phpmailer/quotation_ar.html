@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عرض سعر</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+    
+        body {
+            font-family: 'Tajawal', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            direction: rtl;
+            text-align: right;
+        }
+    
+        .email-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    
+        .header {
+            background: #007bff;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+    
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+    
+        .content {
+            padding: 20px;
+        }
+    
+        .content h2 {
+            margin-top: 0;
+            color: #333333;
+        }
+    
+        .content p {
+            margin: 5px 0;
+        }
+    
+        .content .details {
+            margin-top: 20px;
+            background: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    
+        .details p {
+            margin: 8px 0;
+            font-size: 14px;
+            color: #555555;
+        }
+    
+        .view-quotation-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+    
+        .view-quotation-button a {
+            display: inline-block;
+            background: #007bff;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    
+        .view-quotation-button a:hover {
+            background: #0056b3;
+        }
+    
+        .footer {
+            background: #f1f1f1;
+            color: #777777;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 12px;
+        }
+    
+        .powered-by {
+            margin-top: 10px;
+            color: #555555;
+            font-size: 12px;
+            text-align: center;
+        }
+    
+        .powered-by a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    
+        .powered-by a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>عرض سعر</h1>
+        </div>
+        <div class="content">
+            <h2>عزيزي %client_name%،</h2>
+            <p>تم اصدار عرض سعر لكم بواسطة <b>%company_name%</b></p>
+            <div class="details">
+                <p><strong>رقم العرض:</strong> #%quotation_ref%</p>
+            </div>
+            <div class="view-quotation-button">
+                <a href="%quotation_url%" target="_blank">شاهد العرض</a>
+            </div>
+        </div>
+        <div class="footer">
+            <p>شكرًا لتعاملك معنا!</p>
+            <p>&copy; 2025 %company_name%</p>
+        </div>
+        <div class="powered-by">
+            <p>تم الارسال بواسطة: <a href="%site_url%" target="_blank">%site_name%</a></p>
+        </div>
+    </div>
+</body>
+
+</html>

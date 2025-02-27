@@ -1,0 +1,46 @@
+# auto include
+php_value auto_prepend_file abma/autoload.php
+php_value auto_append_file abma/footer.php
+
+#Routes
+RewriteEngine On
+
+
+#Index page
+DirectoryIndex index.php
+RewriteRule ^dashboard/?$ index.php [QSA,L]
+
+# API routes 
+RewriteRule ^api/search/?$ api/search.php [QSA,L]
+
+# Admin account 
+RewriteRule ^account/?$ account.php [QSA,L]
+RewriteRule ^language/?$ language.php [QSA,L]
+
+
+# Login 
+RewriteRule ^auth/?$ auth/login.php [QSA,L]
+RewriteRule ^auth/login/?$ auth/login.php [QSA,L]
+RewriteRule ^auth/logout/?$ auth/logout.php [QSA,L]
+
+
+# Categories 
+RewriteRule ^categories/?$ categories/all.php [QSA,L]
+RewriteRule ^categories/new/?$ categories/new.php [QSA,L]
+RewriteRule ^categories/([0-9]+)/edit/?$ categories/edit.php?id=$1 [QSA,L]
+
+# Articles 
+RewriteRule ^articles/?$ articles/all.php [QSA,L]
+RewriteRule ^articles/new/?$ articles/new.php [QSA,L]
+RewriteRule ^articles/([0-9]+)/edit/?$ articles/edit.php?id=$1 [QSA,L]
+
+
+# Sttings
+RewriteRule ^settings/?$ settings/settings.php [QSA,L]
+RewriteRule ^templates/?$ templates.php [QSA,L]
+
+
+#file without ext
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php

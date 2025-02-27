@@ -1,0 +1,26 @@
+{% extends "base.twig" %}
+
+{% set page_title = articles.title %}
+{% set subPageDescription = short_description|striptags ~ "..." %}
+{% if articles.photo is defined and articles.photo is not null %}
+    {% set basicIMG =  siteUrl ~ "files/articles/" ~ articles.photo %}
+{% endif %}
+{% set slug = articles.slug %}
+
+{% block content %}
+{% include 'sidebar.twig' %}
+
+<main class="container py-4 fade-in">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <section class="mb-5">
+                {# <span class="badge bg-primary-subtle text-primary rounded-pill px-3">{{articles.title}}</span> #}
+                <p class="mt-4 lead text-muted">
+                    {{articles.description|raw}}
+                </p>
+            </section>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

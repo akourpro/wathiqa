@@ -1,0 +1,35 @@
+Options -Indexes -MultiViews +FollowSymlinks
+CheckSpelling off
+
+# auto include
+php_value include_path "C:/xampp/htdocs/docs/"
+php_value auto_prepend_file autoload.php
+php_value auto_append_file none
+
+#Routes
+RewriteEngine On
+
+# home
+DirectoryIndex home.php
+RewriteRule ^dashboard/?$ home.php [QSA,L]
+RewriteRule ^index/?$ home.php [QSA,L]
+
+
+RewriteRule ^categories/?$ categories.php [QSA,L]
+RewriteRule ^category/(.*)/view/?$ show_category.php?slug=$1 [QSA,L]
+RewriteRule ^article/(.*)/show/?$ article.php?slug=$1 [QSA,L]
+RewriteRule ^search/(.*)?$ search.php?search=$1 [QSA,L]
+
+# sitemap
+RewriteRule ^sitemap/?$ sitemap.php [QSA,L]
+RewriteRule ^sitemap.xml/?$ sitemap.php [QSA,L]
+
+# robots
+RewriteRule ^robots/?$ robots.php [QSA,L]
+RewriteRule ^robots.txt/?$ robots.php [QSA,L]
+
+
+#file without ext
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php

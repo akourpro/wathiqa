@@ -1,0 +1,211 @@
+/* Base styles */
+:root {
+    --primary: #6f42c1;
+    --primary-rgb: 111, 66, 193;
+    --secondary: #6c757d;
+    --success: #198754;
+    --info: #0dcaf0;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --sidebar-width: 260px;
+    --sidebar-collapsed-width: 70px;
+    --transition-speed: 0.3s;
+}
+
+/* Dark theme variables */
+[data-bs-theme="dark"] {
+    --bs-body-bg: #1a1d21;
+    --bs-body-color: #e9ecef;
+    --bs-border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Typography */
+@font-face {
+    font-family: 'Tajawal';
+    src: url('Tajawal.ttf');
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Layout */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: var(--sidebar-width);
+    background: var(--bs-body-bg);
+    border-left: 1px solid var(--bs-border-color);
+    transition: width var(--transition-speed) ease;
+    z-index: 1030;
+}
+
+.sidebar.collapsed {
+    width: var(--sidebar-collapsed-width);
+}
+
+.logo{
+    width: 30%;
+}
+
+.sidebar.collapsed .logo-section span,
+.sidebar.collapsed .search-container,
+.sidebar.collapsed nav {
+    display: none;
+}
+
+.main-content {
+    margin-right: var(--sidebar-width);
+    transition: margin-right var(--transition-speed) ease;
+}
+
+.sidebar.collapsed+.main-content {
+    margin-right: var(--sidebar-collapsed-width);
+}
+
+/* Glass effect */
+.glass {
+    background: rgba(var(--bs-body-bg-rgb), 0.5);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(var(--bs-body-color-rgb), 0.1);
+}
+
+.glass-nav {
+    background: rgba(var(--bs-body-bg-rgb), 0.8);
+    backdrop-filter: blur(12px);
+}
+
+/* Icons */
+.icon-primary {
+    width: 24px;
+    height: 24px;
+    color: var(--primary);
+}
+
+.w-4 {
+    width: 16px;
+    height: 16px;
+}
+
+.w-5 {
+    width: 20px;
+    height: 20px;
+}
+
+/* Search input */
+.search-container {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    color: var(--secondary);
+    z-index: 2;
+}
+
+.search-container input {
+    padding-right: 35px;
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Navigation */
+.nav-link {
+    color: var(--bs-body-color);
+    opacity: 0.8;
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+    opacity: 1;
+    background: rgba(var(--primary-rgb), 0.1);
+}
+
+/* Buttons */
+.btn-light {
+    background: rgba(var(--bs-body-color-rgb), 0.1);
+    border: none;
+}
+
+.btn-light:hover {
+    background: rgba(var(--bs-body-color-rgb), 0.2);
+}
+
+/* Cards */
+.card.glass {
+    transition: transform 0.2s ease;
+}
+
+.card.glass:hover {
+    transform: translateY(-2px);
+}
+
+/* Code blocks */
+pre {
+    margin: 0;
+    background: transparent;
+}
+
+code {
+    color: var(--primary);
+}
+
+/* Utilities */
+.gap-1 {
+    gap: 0.25rem;
+}
+
+.gap-2 {
+    gap: 0.5rem;
+}
+
+
+/* تغيير لون الأيقونات عند المرور بالماوس */
+.facebook:hover i {
+    color: #1877F2;
+    /* أزرق فيسبوك */
+}
+
+.instagram:hover i {
+    color: #E4405F;
+    /* وردي إنستجرام */
+}
+
+.twitter:hover i {
+    color: #000000;
+    /* أسود تويتر (X) */
+}
+
+.github:hover i {
+    color: #6e5494;
+    /* بنفسجي GitHub */
+}
+
+/* تحسين الانتقال لتأثير سلس */
+li a i {
+    transition: color 0.3s ease;
+}

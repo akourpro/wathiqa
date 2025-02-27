@@ -1,0 +1,18 @@
+{% extends "base.twig" %}
+
+{% set page_title = "الصفحة الرئيسية" %}
+
+{% block content %}
+{% include 'sidebar.twig' %}
+
+<main class="container py-4 fade-in">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <section class="mb-5">
+                {{ home_page|raw }}
+            </section>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

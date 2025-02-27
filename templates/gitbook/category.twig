@@ -1,0 +1,34 @@
+{% extends "base.twig" %}
+
+{% set page_title = categories.title %}
+{% set subPageDescription = categories.description|striptags ~ "..." %}
+
+{% block content %}
+{% include 'sidebar.twig' %}
+
+<main class="container py-4 fade-in">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <section class="mb-5">
+                <div class="row gy-6 gy-lg-0">
+                {% for article in articles %}
+                    <div class="card me-2" style="width: 18rem;" onclick="javascript:location.href='article/{{article.slug}}/show'">
+                    {% if article.photo is defined and article.photo is not null %}
+                        <img src="{{siteUrl}}files/articles/{{article.photo}}" class="card-img-top" alt="صورة الشرح" style=" max-width: 270px; max-height: 150px; ">
+                    {% else %}
+                        <img src="{{siteUrl}}files/images/banner.jpg" class="card-img-top" alt="بنر">
+                    {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{article.title}}</h5>
+                            <p class="card-text">{{ article.description|striptags | length > 90 ? article.description|striptags | slice(0, 90) ~ '...' : article.description|striptags }}</p>
+                            <a href="article/{{article.slug}}/show" class="btn btn-primary">عرض المقال</a>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

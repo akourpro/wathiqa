@@ -1,0 +1,483 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="supported-color-schemes" content="light dark" />
+    <title></title>
+    <style type="text/css" rel="stylesheet" media="all">
+        @import url(https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap);
+
+        h1,
+        h2,
+        h3 {
+            margin-top: 0;
+            color: #333;
+            text-align: right;
+            font-weight: 700
+        }
+
+        .button,
+        body {
+            -webkit-text-size-adjust: none;
+            direction: rtl
+        }
+
+        .purchase_total,
+        h1,
+        h2,
+        h3 {
+            font-weight: 700
+        }
+
+        body {
+            width: 100% !important;
+            height: 100%;
+            margin: 0;
+            background-color: #f4f4f7;
+            color: #51545e
+        }
+
+        .button,
+        btncta {
+            color: #fff !important
+        }
+
+        a {
+            color: #3869d4
+        }
+
+        a img {
+            border: none
+        }
+
+        td {
+            word-break: break-word
+        }
+
+        .preheader {
+            display: none !important;
+            visibility: hidden;
+            mso-hide: all;
+            font-size: 1px;
+            line-height: 1px;
+            max-height: 0;
+            max-width: 0;
+            opacity: 0;
+            overflow: hidden
+        }
+
+        .purchase_item,
+        .related_item {
+            font-size: 15px;
+            line-height: 18px
+        }
+
+        body,
+        td,
+        th {
+            font-family: "Tajawal", sans-serif
+        }
+
+        h1 {
+            font-size: 22px
+        }
+
+        h2 {
+            font-size: 16px
+        }
+
+        h3 {
+            font-size: 14px
+        }
+
+        td,
+        th {
+            font-size: 16px
+        }
+
+        blockquote,
+        ol,
+        p,
+        ul {
+            margin: .4em 0 1.1875em;
+            font-size: 16px;
+            line-height: 1.625
+        }
+
+        p.sub {
+            font-size: 13px
+        }
+
+        .align-right {
+            text-align: right
+        }
+
+        .align-right {
+            text-align: right
+        }
+
+        .align-center,
+        .discount_heading {
+            text-align: center
+        }
+
+        .button {
+            background-color: #3869d4;
+            border-top: 10px solid #3869d4;
+            border-right: 18px solid #3869d4;
+            border-bottom: 10px solid #3869d4;
+            border-left: 18px solid #3869d4;
+            display: inline-block;
+            text-decoration: none;
+            border-radius: 3px;
+            box-shadow: 0 2px 3px rgba(0, 0, 0, .16);
+            box-sizing: border-box
+        }
+
+        .button--green {
+            background-color: #22bc66;
+            border-top: 10px solid #22bc66;
+            border-right: 18px solid #22bc66;
+            border-bottom: 10px solid #22bc66;
+            border-left: 18px solid #22bc66
+        }
+
+        .button--red {
+            background-color: #ff6136;
+            border-top: 10px solid #ff6136;
+            border-right: 18px solid #ff6136;
+            border-bottom: 10px solid #ff6136;
+            border-left: 18px solid #ff6136
+        }
+
+        .attributes_content,
+        .discount,
+        .email-wrapper {
+            background-color: #f4f4f7
+        }
+
+        @media only screen and (max-width:500px) {
+            .button {
+                width: 100% !important;
+                text-align: center !important
+            }
+        }
+
+        .discount,
+        .purchase_content,
+        .related {
+            width: 100%;
+            -premailer-width: 100%;
+            -premailer-cellpadding: 0;
+            -premailer-cellspacing: 0
+        }
+
+        .attributes {
+            margin: 0 0 21px
+        }
+
+        .attributes_content {
+            padding: 16px
+        }
+
+        .attributes_item {
+            padding: 0
+        }
+
+        .purchase_content,
+        .related {
+            margin: 0;
+            padding: 25px 0 0
+        }
+
+        .related_item {
+            padding: 10px 0;
+            color: #cbcccf
+        }
+
+        .related_item-title {
+            display: block;
+            margin: .5em 0 0
+        }
+
+        .related_item-thumb {
+            display: block;
+            padding-bottom: 10px
+        }
+
+        .related_heading {
+            border-top: 1px solid #cbcccf;
+            text-align: center;
+            padding: 25px 0 10px
+        }
+
+        .discount {
+            margin: 0;
+            padding: 24px;
+            border: 2px dashed #cbcccf
+        }
+
+        .social,
+        .social td {
+            width: auto
+        }
+
+        .body-sub,
+        .purchase_footer {
+            border-top: 1px solid #eaeaec
+        }
+
+        .discount_body {
+            text-align: center;
+            font-size: 15px
+        }
+
+        .email-content,
+        .email-wrapper,
+        .purchase {
+            width: 100%;
+            -premailer-width: 100%;
+            -premailer-cellpadding: 0;
+            -premailer-cellspacing: 0
+        }
+
+        .social td {
+            padding: 0
+        }
+
+        .social_icon {
+            height: 20px;
+            margin: 0 8px 10px;
+            padding: 0
+        }
+
+        .purchase {
+            margin: 0;
+            padding: 35px 0
+        }
+
+        .purchase_item {
+            padding: 10px 0;
+            color: #51545e
+        }
+
+        .purchase_heading {
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eaeaec
+        }
+
+        .purchase_heading p {
+            margin: 0;
+            color: #85878e;
+            font-size: 12px
+        }
+
+        .purchase_footer {
+            padding-top: 15px
+        }
+
+        .purchase_total {
+            margin: 0;
+            text-align: right;
+            color: #333
+        }
+
+        .body-action,
+        .email-footer,
+        .email-masthead {
+            text-align: center
+        }
+
+        .purchase_total--label {
+            padding: 0 15px 0 0
+        }
+
+        p {
+            color: #51545e
+        }
+
+        .email-footer p,
+        p.sub {
+            color: #6b6e76
+        }
+
+        .email-wrapper {
+            margin: 0;
+            padding: 0
+        }
+
+        .email-body,
+        .email-body_inner {
+            background-color: #fff
+        }
+
+        .email-content {
+            margin: 0;
+            padding: 0
+        }
+
+        .email-masthead {
+            padding: 25px 0
+        }
+
+        .email-masthead_logo {
+            width: 94px
+        }
+
+        .email-masthead_name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #a8aaaf;
+            text-decoration: none;
+            text-shadow: 0 1px 0 #fff
+        }
+
+        .email-body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            -premailer-width: 100%;
+            -premailer-cellpadding: 0;
+            -premailer-cellspacing: 0
+        }
+
+        .email-body_inner,
+        .email-footer {
+            width: 570px;
+            margin: 0 auto;
+            -premailer-width: 570px;
+            padding: 0;
+            -premailer-cellpadding: 0;
+            -premailer-cellspacing: 0
+        }
+
+        .body-action {
+            width: 100%;
+            margin: 30px auto;
+            padding: 0;
+            -premailer-width: 100%;
+            -premailer-cellpadding: 0;
+            -premailer-cellspacing: 0
+        }
+
+        .body-sub {
+            margin-top: 25px;
+            padding-top: 25px
+        }
+
+        .content-cell {
+            padding: 35px
+        }
+
+        @media only screen and (max-width:600px) {
+
+            .email-body_inner,
+            .email-footer {
+                width: 100% !important
+            }
+        }
+
+        @media (prefers-color-scheme:dark) {
+
+            .email-body,
+            .email-body_inner,
+            .email-content,
+            .email-footer,
+            .email-masthead,
+            .email-wrapper,
+            body {
+                background-color: #333 !important;
+                color: #fff !important
+            }
+
+            .purchase_item,
+            blockquote,
+            h1,
+            h2,
+            h3,
+            ol,
+            p,
+            span,
+            ul {
+                color: #fff !important
+            }
+
+            .attributes_content,
+            .discount {
+                background-color: #222 !important
+            }
+
+            .email-masthead_name {
+                text-shadow: none !important
+            }
+        }
+
+        :root {
+            color-scheme: light dark;
+            supported-color-schemes: light dark
+        }
+    </style>
+    <!--[if mso]>
+    <style type="text/css">
+      .f-fallback  {
+        font-family: "Tajawal", sans-serif;
+      }
+    </style>
+  <![endif]-->
+</head>
+
+<body>
+    <span class="preheader">لقد تم تفعيل حسابك بنجاح</span>
+    <table style="direction: rtl;" class="email-wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation">
+        <tr>
+            <td align="center">
+                <table class="email-content" width="100%" cellpadding="0" cellspacing="0" role="presentation">
+                    <tr>
+                        <td class="email-masthead">
+                            <a href="%site_url%" class="f-fallback email-masthead_name">
+                                <img src="%logo%" width="200">
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- Email Body -->
+                    <tr>
+                        <td class="email-body" width="100%" cellpadding="0" cellspacing="0">
+                            <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                                <!-- Body content -->
+                                <tr>
+                                    <td class="content-cell">
+                                        <div class="f-fallback">
+                                            <h1>السلام عليكم %user_name%،</h1>
+                                            <p>لقد لقد تم تفعيل حسابك في %site_name% بنجاح.<br>
+                                                نتمنى أن تعجبك خدماتنا التي نقدمها من أجلكم، ونحن نتطلع الى رؤية اقتراحاتكم وانتقاداتكم لخدماتنا المقدمة.</p>
+                                            <p>شكرا.</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="email-footer" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                                <tr>
+                                    <td class="content-cell" align="center">
+                                        <p class="f-fallback sub align-center">كان هذا البريد الإلكتروني مخصصًا لـ %user_email% لأنك قمت بالتسجيل في %site_name%. سيتم دائمًا إعادة توجيه الروابط الموجودة في هذا البريد الإلكتروني إلى %site_url%</p>
+                                        <p class="f-fallback sub align-center">في حال وصلت اليك هذه الرسالة عن طريق الخطأ، يمكنك تخطيها وعدم الضغط فوق اي رابط.</p>
+                                        <p class="f-fallback sub align-center">&copy; جميع الحقوق محفوظة.</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

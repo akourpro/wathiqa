@@ -1,0 +1,35 @@
+{% extends "base.twig" %}
+
+{% set page_title = word_search %}
+{% set subPageDescription = "عرض نتائج البحث عن " ~ word_search %}
+
+{% block content %}
+{% include 'sidebar.twig' %}
+
+<main class="container py-4 fade-in">
+{{ alert|raw }}
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <section class="mb-5">
+                <div class="row gy-6 gy-lg-0">
+                {% for result in results %}
+                    <div class="card me-2" style="width: 18rem;" onclick="javascript:location.href='article/{{result.slug}}/show'">
+                    {% if result.photo is defined and result.photo is not null %}
+                        <img src="{{siteUrl}}files/articles/{{result.photo}}" class="card-img-top" alt="صورة الشرح" style=" max-width: 270px; max-height: 150px; ">
+                    {% else %}
+                        <img src="{{siteUrl}}files/images/banner.jpg" class="card-img-top" alt="بنر">
+                    {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{result.title}}</h5>
+                            <p class="card-text">{{ result.description|striptags | length > 90 ? result.description|striptags | slice(0, 90) ~ '...' : result.description|striptags }}</p>
+                            <a href="article/{{result.slug}}/show" class="btn btn-primary">عرض المقال</a>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
