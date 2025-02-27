@@ -6,23 +6,43 @@
 {% block content %}
 {% include 'sidebar.twig' %}
 
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    animation: fadeIn 1s ease-in-out;
+}
+
+h1 {
+    font-size: 8rem;
+    font-weight: 600;
+}
+
+p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
 <main class="container py-4 fade-in">
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <section class="mb-5">
-                <p class="mt-4 lead text-muted">
-                    <div class="badge bg-danger">خطأ 404</div>
-                    <br>
-                    <br>
-                    <div class="alert alert-danger">عذرًا، الصفحة المطلوبة غير موجودة !</div>
-                    <br>
-                    <br>
-                    <a href="{{ siteUrl }}" class="btn btn-primary">العودة للرئيسية</a>
-                </p>
+            <h1>404 خطأ</h1>
+            <p>عذرًا، الصفحة المطلوبة غير موجودة !</p>
+            <a href="{{ siteUrl }}" class="btn btn-danger">العودة للرئيسية</a>
             </section>
         </div>
     </div>
 </main>
-
 
 {% endblock %}
