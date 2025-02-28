@@ -10,7 +10,8 @@
                     document.write(new Date().getFullYear());
                 </script>
                 صنع بكل <span class="text-danger"><i class="tf-icons mdi mdi-heart"></i></span> بواسطة
-                <a href="#" class="footer-link fw-medium">محمد عكور & بوجليدة عبدالحق</a>
+                <a href="#" class="footer-link fw-medium"><a href="https://akour.me/ar" target="_blank">محمد عكور</a> & <a href="https://abdelhak.me" target="_blank">بوجليدة عبدالحق</a></a>
+                <span>الاصدار 1.0</span>
             </div>
         </div>
     </div>

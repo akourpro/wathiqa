@@ -151,6 +151,14 @@
                             <i class="menu-icon tf-icons mdi mdi-account-group"></i> الكلمات والادخالات
                         </a>
                     </li> -->
+                    <li class="menu-header fw-medium mt-4">
+                        <span class="menu-header-text">الدعم</span>
+                    </li>
+                    <li class="menu-item">
+                        <a href="https://wathiqa.site/" target="_blank" class="menu-link">
+                            <i class="menu-icon tf-icons mdi mdi-file-document-check-outline"></i>توثيق السكربت
+                        </a>
+                    </li>
                 </ul>
             </aside>
             <!-- / Menu -->

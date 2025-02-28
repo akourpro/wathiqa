@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
         dbSelect("articles", "slug", "WHERE slug = ? AND id != ? LIMIT 1", [$slug, $id]);
         if ($countrows == 0) {
             $columns = "title = ?, description = ?, slug = ?, category = ?, status = ?, last_update = ?";
-            $values = [$title, $description, $slug, $category, $status, date("Y-m-d H:i:s"), $id];
+            $values = [$title, $description, strtolower($slug), $category, $status, date("Y-m-d H:i:s"), $id];
             dbUpdate("articles", $columns, $values, "WHERE id = ? LIMIT 1");
 
             if (!empty($_FILES['photo']['name'])) {
@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
                     dbUpdate("articles", "photo = ?", [$filename, $id], "WHERE id = ? LIMIT 1");
                 }
             }
-            sweet("success", "نجاح", "تم نشر المقالة بنجاح", "articles");
+            sweet("success", "نجاح", "تم تعديل المقالة بنجاح", "articles");
         } else {
             sweet("error", "خطأ", "عنوان الرابط (slug) موجود بالفعل !");
         }
@@ -78,7 +78,7 @@ if (isset($_POST['submit'])) {
                         dbSelect("categories", "id, title");
                         if ($countrows >= 1) {
                             foreach ($rows as $row) {
-                                if (isset($_POST['category']) and $_POST['category'] == $row['id']) {
+                                if ($category == $row['id']) {
                                     echo '<option value="' . $row['id'] . '" selected>' . $row['title'] . '</option>';
                                 } else {
                                     echo '<option value="' . $row['id'] . '">' . $row['title'] . '</option>';
@@ -93,8 +93,8 @@ if (isset($_POST['submit'])) {
             <div class="col-md-6">
                 <div class="form-floating form-floating-outline">
                     <select class="form-control" name="status">
-                        <option value="enable" selected>ظاهر</option>
-                        <option value="disable">مخفي</option>
+                        <option value="enable" <?php if ($status == "enable") echo "selected"; ?>>ظاهر</option>
+                        <option value="disable" <?php if ($status == "disable") echo "selected"; ?>>مخفي</option>
                     </select>
                     <label>الحالة</label>
                 </div>

@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
         dbSelect("articles", "slug", "WHERE slug = ? LIMIT 1", [$slug]);
         if ($countrows == 0) {
             $columns = "title, description, slug, category, status, date";
-            $values = [$title, $description, $slug, $category, $status, date("Y-m-d H:i:s")];
+            $values = [$title, $description, strtolower($slug), $category, $status, date("Y-m-d H:i:s")];
             $id = dbInsert("articles", $columns, $values);
 
             if ($_FILES['photo']['name']) {

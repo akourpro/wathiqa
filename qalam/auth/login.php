@@ -132,7 +132,7 @@ if (login_check_admin()) {
                         </div>
 
                         <div class="d-flex justify-content-center gap-2">
-                            <p>برمجة وتطوير: <a href="#" target="_blank">محمد عكور</a> & <a href="#" target="_blank">بوجليدة عبدالحق</a></p>
+                            <p>برمجة وتطوير: <a href="https://akour.me/ar" target="_blank">محمد عكور</a> & <a href="https://abdelhak.me" target="_blank">بوجليدة عبدالحق</a></p>
                         </div>
                     </div>
                 </div>

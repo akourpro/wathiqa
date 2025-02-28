@@ -10,7 +10,8 @@ if (isset($_POST['submit'])) {
 
         if (!empty($_POST['password'])) {
             if ($_POST['password'] == $_POST['confirm_password']) {
-                $password = password_hash($password, PASSWORD_BCRYPT);
+                $password = $_POST['password'];
+                $password = password_hash(hash('sha512', $password), PASSWORD_BCRYPT);
                 $columns = "password = ?";
                 $values = [$password, 1];
                 dbUpdate("admins", $columns, $values, "WHERE id = ?");
@@ -47,13 +48,9 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div class="col-md-6">
-                <div class="form-email-toggle">
-                    <div class="input-group input-group-merge">
-                        <div class="form-floating form-floating-outline">
-                            <input type="email" id="multicol-email" class="form-control" name="email" value="<?php echo $rows[0]['email']; ?>" placeholder="البريد الالكتروني" required>
-                            <label for="multicol-email">البريد الالكتروني</label>
-                        </div>
-                    </div>
+                <div class="form-floating form-floating-outline">
+                    <input type="email" id="multicol-email" class="form-control" name="email" value="<?php echo $rows[0]['email']; ?>" placeholder="البريد الالكتروني" required>
+                    <label for="multicol-email">البريد الالكتروني</label>
                 </div>
             </div>
 
