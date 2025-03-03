@@ -5,4 +5,4 @@ Disallow: /admin/
 Allow: /
 
 # Sitemap
-Sitemap: <?php echo $site['site_url'] ?>/sitemap.xml
+Sitemap: <?php echo $site['site_url'] ?>sitemap.xml

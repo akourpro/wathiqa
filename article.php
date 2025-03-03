@@ -5,7 +5,7 @@ require_once 'sidebar.php'; // استيراد sidebar
 dbSelect("articles", "*", "WHERE slug = ? AND status != ? LIMIT 1", [$slug, "disable"]);
 if ($countrows == 1) {
     $articles = $rows[0];
-    $short_description = mb_substr($articles['description'], 0, 125, 'UTF-8');
+    $short_description = mb_substr($articles['description'], 0, 500, 'UTF-8');
 
     dbSelect("categories", "slug, title", "WHERE id = ? LIMIT 1", [$articles['category']]);
     $categories = $rows[0];

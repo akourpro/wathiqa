@@ -7,6 +7,13 @@
 {% endif %}
 {% set slug = articles.slug %}
 
+
+{% set schema = {
+    "datePublished": articles.date|date("Y-m-d\\TH:i:sP"), 
+    "dateModified": articles.last_update|date("Y-m-d\\TH:i:sP"), 
+    "slug": siteUrl ~ "article/" ~ articles.slug ~ "/show"
+} %}
+
 {% block content %}
 {% include 'sidebar.twig' %}
 

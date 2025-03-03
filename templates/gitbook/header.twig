@@ -3,10 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
     <base href="{{siteUrl}}" >
     <title>{% if page_title is defined %}{{ page_title }} - {% endif %}{{siteName}}</title>
     <meta name="description" content="{% if subPageDescription is defined %}{{ subPageDescription }}{% else %}{{ siteDescription }}{% endif %}">
     <meta name="keywords" content="{{siteMetaTags}}">
+	<meta name="author" content="{{ siteName }}">
+    <meta name="publisher" content="{{ siteName }}">
+    <meta name="language" content="Arabic">
+    <meta name="distribution" content="global">
+	
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="{% if page_title is defined %}{{ page_title }} - {% endif %}{{siteName}}">
@@ -14,6 +21,9 @@
     <meta property="og:image:alt" content="مرحبًا بكم جميعًا" />
     <meta property="og:description" content="{% if subPageDescription is defined %}{{ subPageDescription }}{% else %}{{ siteDescription }}{% endif %}">
     <meta property="og:site_name" content="{{siteName}}">
+	
+    <link rel="alternate" hreflang="ar" href="{{ siteUrl }}">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ siteUrl }}sitemap.xml">
 
     <link href="{{ templatePath }}/assets/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ templatePath }}/assets/css/style.css">
@@ -25,6 +35,41 @@
     <script src="js/sweetalert2.all.min.js"></script>
     <script src="js/js.cookie.min.js"></script>
     <script src="js/functions.js?v=15092024"></script>
+    {% if schema is defined %}
+    <script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "Article",
+	  "headline": "{% if page_title is defined %}{{ page_title }} - {% endif %}{{siteName}}",
+	  "description": "{% if subPageDescription is defined %}{{ subPageDescription }}{% else %}{{ siteDescription }}{% endif %}",
+	  "author": {
+		"@type": "Person",
+		"name": "{{ siteName }}"
+	  },
+	  "publisher": {
+		"@type": "Organization",
+		"name": "{{ siteName }}",
+		"logo": {
+		  "@type": "ImageObject",
+		  "url": "{{ siteUrl }}files/images/logo.png"
+		}
+	  },
+	  "datePublished": "{{schema.datePublished}}",
+	  "dateModified": "{{schema.dateModified}}",
+	  "mainEntityOfPage": {
+		"@type": "WebPage",
+		"@id": "{{schema.slug}}"
+	  },
+	  "image": {
+		"@type": "ImageObject",
+		"url": "{% if basicIMG is defined %}{{ basicIMG }}{% else %}{{siteUrl}}files/images/banner.jpg{% endif %}",
+		"width": 1200,
+		"height": 800
+	  }
+	}
+	</script>
+    {% endif %}
+
   </head>
   <body>
     <div class="sidebar" id="sidebar">

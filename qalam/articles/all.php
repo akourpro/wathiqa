@@ -17,12 +17,13 @@
                     <th>الفئة</th>
                     <th>الرابط</th>
                     <th>الحالة</th>
+                    <th><i class="mdi mdi-eye-settings-outline"></i></th>
                     <th>اجراء</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                dbSelect("articles", "id, title, category, slug, status");
+                dbSelect("articles", "id, title, category, slug, status, views");
                 foreach ($rows as $row) {
                     dbSelect("categories", "title, slug", "WHERE id = ? LIMIT 1", [$row['category']]);
                     $category = $rows[0]['title'];
@@ -40,6 +41,7 @@
                         <td>' . $category . '</td>
                         <td>' . $row['slug'] . '</td>
                         <td>' . $status . '</td>
+                        <td class="text-center">' . $row['views'] . '</td>
                         <td>
                             <a href="../article/' . $row['slug'] . '/show" target="_blank" class="btn btn-sm btn-primary"><i class="mdi mdi-eye"></i> عرض</a>
                             <a href="articles/' . $row['id'] . '/edit" class="btn btn-sm btn-warning"><i class="mdi mdi-pencil"></i> تعديل</a>

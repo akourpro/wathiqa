@@ -3,7 +3,7 @@
 $urls = [
     [
         'loc' => $site['site_url'],
-        'lastmod' => date("Y-m-d"),
+        'lastmod' => date("Y-m-d\TH:i:sP"),
         'changefreq' => 'daily',
         'priority' => '1.0',
         'title' => $site['name'] . ' - الصفحة الرئيسية',
@@ -27,7 +27,7 @@ if ($countrows >= 1) {
             $lastmod = strtotime($row['date']);
         }
 
-        $lastmod = date("Y-m-d", $lastmod);
+        $lastmod = date("Y-m-d\TH:i:sP", $lastmod);
         $changefreq = "weekly";
         $priority = "0.8";
         $title = $row['title'];

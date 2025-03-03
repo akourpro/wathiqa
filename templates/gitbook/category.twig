@@ -3,6 +3,12 @@
 {% set page_title = categories.title %}
 {% set subPageDescription = categories.description|striptags ~ "..." %}
 
+{% set schema = {
+    "datePublished": categories.date|date("Y-m-d\\TH:i:sP"), 
+    "dateModified": categories.last_update|date("Y-m-d\\TH:i:sP"), 
+    "slug": siteUrl ~ "category/" ~ categories.slug ~ "/view"
+} %}
+
 {% block content %}
 {% include 'sidebar.twig' %}
 
