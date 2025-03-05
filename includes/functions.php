@@ -1281,3 +1281,49 @@ function sendEmail($subject, $email, $messageData, $template, $attachments = NUL
 		mailer($email, $subject, $message, NULL, $attachments);
 	}
 }
+
+// تحميل التحديث
+function downloadUpdate($url, $path)
+{
+	$file = file_get_contents($url);
+	return file_put_contents($path, $file);
+}
+
+// تطبيق التحديث (استبدال الملفات)
+function applyUpdate($zipPath, $extractPath, $excludeFiles = [])
+{
+	$zip = new ZipArchive;
+	if ($zip->open($zipPath) === TRUE) {
+		for ($i = 0; $i < $zip->numFiles; $i++) {
+			$filename = $zip->getNameIndex($i);
+			if (!in_array($filename, $excludeFiles)) {
+				$zip->extractTo($extractPath, $filename);
+			}
+		}
+		$zip->close();
+		return true;
+	}
+	return false;
+}
+
+// تحديث قاعدة البيانات
+function runDatabaseUpdate($sqlFilePath)
+{
+	try {
+		$dsn = "mysql:host=" . HOST . ";dbname=" . DATABASE . ";charset=utf8mb4";
+		$pdo = new PDO($dsn, USER, PASSWORD, [
+			PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+			PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+		]);
+
+		$sql = file_get_contents($sqlFilePath);
+		if ($sql === false) {
+			return "فشل قراءة ملف SQL.";
+		}
+
+		$pdo->exec($sql);
+		return "تم تحديث قاعدة البيانات بنجاح!";
+	} catch (PDOException $e) {
+		return "خطأ في تحديث قاعدة البيانات: " . $e->getMessage();
+	}
+}
