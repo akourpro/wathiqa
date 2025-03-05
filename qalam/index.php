@@ -41,7 +41,7 @@
         $updateData = file_get_contents($updateUrl);
         $update = json_decode($updateData, true);
 
-        $currentVersion = '1.0.0';
+        $currentVersion = '1.0';
 
         if ($update && version_compare($update['version'], $currentVersion, '>')):
             if (isset($_POST['update'])) {
