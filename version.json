@@ -1,5 +1,5 @@
 {
-    "version": "1.0",
-    "changelog": "النسخة الاولى من السكربت.",
-    "download_url": "https://github.com/akourpro/wathiqa/releases/download/V1.0/V1.0-Apache.zip"
+    "version": "1.1",
+    "changelog": "<ul><li>اضافة Schema لتحسين SEO</li><li>إضافة عدد المشاهدات لكل مقالة في لوحة التحكم > الشروحات</li><li>إضافة خيار اشعار بوجود تحديث + زر للتحديث بشكل مباشر</li></ul>",
+    "download_url": "https://github.com/akourpro/wathiqa/releases/download/V1.0/V1.1-Apache.zip"
 }
