@@ -15,12 +15,18 @@ $(document).ready(function() {
           `);
         });
 
-        let isDark = false;
+        let isDark = localStorage.getItem('theme') === 'dark';
+        $('html').attr('data-bs-theme', isDark ? 'dark' : 'light');
+        $('#toggleTheme').html(`
+            <i class="${isDark ? 'w-4 h-4 fa-regular fa-sun' : 'w-4 h-4 fa-regular fa-moon'}"></i>
+        `);
         $('#toggleTheme').click(function() {
             isDark = !isDark;
             $('html').attr('data-bs-theme', isDark ? 'dark' : 'light');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
             $(this).html(`
-            <i class="${isDark ? 'w-4 h-4 fa-regular fa-sun' : 'w-4 h-4 fa-regular fa-moon'}"></i>
-          `);
+                <i class="${isDark ? 'w-4 h-4 fa-regular fa-sun' : 'w-4 h-4 fa-regular fa-moon'}"></i>
+            `);
         });
-    });
+
+});
