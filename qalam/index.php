@@ -50,7 +50,7 @@
                 $sqlFilePath = safer($_SERVER['DOCUMENT_ROOT']) . '/update.sql';
 
                 if (downloadUpdate($update['download_url'], $zipPath)) {
-                    if (applyUpdate($zipPath, $extractPath, ['includes/config.php', '.htaccess', 'images/banner.jpg', 'images/logo.png'])) {
+                    if (applyUpdate($zipPath, $extractPath, ['includes/config.php', '.htaccess', 'files/images/banner.jpg', 'files/images/logo.png'])) {
                         sweet("success", "نجاح", "تم التحديث بنجاح إلى الإصدار " . $update['version'], "here");
 
                         if (!empty($update['sql_file']) && file_exists($sqlFilePath)) {
